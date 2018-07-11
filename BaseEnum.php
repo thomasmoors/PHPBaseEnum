@@ -14,7 +14,7 @@ abstract class BaseEnum
      *
      * @return BaseEnum
      */
-    final public function addFlag(int $flag): self
+    final public function add(int $flag): self
     {
         $this->state |= $flag;
 
@@ -26,7 +26,7 @@ abstract class BaseEnum
      *
      * @return BaseEnum
      */
-    final public function removeFlag(int $flag): self
+    final public function remove(int $flag): self
     {
         $this->state &= (~$flag);
 
@@ -38,7 +38,7 @@ abstract class BaseEnum
      *
      * @return BaseEnum
      */
-    final public function toggleFlag(int $flag): self
+    final public function toggle(int $flag): self
     {
         $this->state ^= $flag;
 
@@ -51,7 +51,7 @@ abstract class BaseEnum
      *
      * @return bool
      */
-    final public function hasFlag(int $set, int $flag): bool
+    final public function has(int $set, int $flag): bool
     {
         return ($this->state & $flag) === $flag;
     }
@@ -61,7 +61,7 @@ abstract class BaseEnum
      *
      * @return int
      */
-    final public function positionToFlag(int $position): int
+    final public function shift(int $position): int
     {
         return 1 << $position;
     }
